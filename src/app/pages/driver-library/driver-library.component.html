@@ -1,0 +1,101 @@
+<hr class="hr">
+<div class="row ml-4 mr-4 main-content">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-6">
+      <h3 class="font-weight-bold main-title">Driver Library</h3>
+    </div>
+    <!-- <div class="row ml-4 mr-4 mt-2">
+      <div class="col-md-2">
+        <img height=100 width=100 src="../../../assets/images/Group 144.png">
+      </div>
+      <div class="col-md-2">
+        <img height=100 width=100 src="../../../assets/images/Group 144.png">
+      </div>
+      <div class="col-md-2">
+        <img height=100 width=100 src="../../../assets/images/Group 144.png">
+      </div>
+      <div class="col-md-2">
+        <img height=100 width=100 src="../../../assets/images/Group 144.png">
+      </div>
+    </div> -->
+    <div class=" d-flex col-md-6" style="justify-content: flex-end; padding-top: 10px;">
+      <input type="text" class="custom-search-input" placeholder="Search" #value (keypress)="onSearchClean($event.target.value)">
+      <button class="btn btn-primary ml-3" (click)="onSearch(value.value)">SEARCH</button>
+    </div>
+  </div>  
+    <div class="display driver-library">
+      <div class="custom-dropdown">
+      <select class="form-control" (change)="onChangeOfOem($event.target.value)">
+        <option value="0" selected>Select OEM</option>
+        <option value="Microsoft">Microsoft</option>
+        <option value="Dell">Dell</option>
+        <option value="Lenovo">Lenovo</option>
+        <option value="HP">HP</option>
+        <option value="Acer">Acer</option>
+        <option value="Asus">Asus</option>
+        <option value="MSI">MSI</option>
+        <option value="Toshiba">Toshiba</option>
+        <option value="NEC">NEC</option>
+        <option value="IBM">IBM</option>
+        <option value="Compaq">Compaq</option>
+        <option value="Packard Bell">Packard Bell</option>
+        <option value="Fujitsu">Fujitsu</option>
+        <option value="Sharp">Sharp</option>
+        <option value="MSX">MSX</option>
+      </select>
+    </div>
+    <div class="custom-dropdown ml-3">
+      <select class="form-control " (change)="onChangeOfCpu($event.target.value)">
+        <option value="0" selected>Select CPU</option>
+        <option value="x64">x64</option>
+        <option value="x86">x86</option>
+      </select>
+      </div>
+      <div class="custom-dropdown ml-3">
+      <select class="form-control " (change)="onChangeOfWindows($event.target.value)">
+        <option value="0" selected>Select OS</option>
+        <option value="Windows 10">Windows 10</option>
+        <option value="Windows 11">Windows 11</option>
+        <option value="Windows 8.1">Windows 8.1</option>
+        <option value="Windows 7">Windows 7</option>
+      </select>
+      </div>
+    </div>
+    <div class="card mt-3">
+      <div class="card-body table-wrapper-scroll-y my-custom-scrollbar library-table">
+        <table class="table mt-2">
+          <thead>
+            <tr>
+              <!-- <th>Logo</th> -->
+              <th class="th rounded-corner-left">Manufacturer</th>
+              <th class="th">Make</th>
+              <th class="th">Model</th>
+              <th class="th">Year</th>
+              <th class="th">Arch</th>
+              <th class="th rounded-corner-right">OS</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let d of driversDetails; index as i">
+            <tr>
+              <td *ngIf="d.originalEquipmentManufacturer === 'Microsoft'"><img src="../../../assets/images/microsoft-icon.png"/><span class="ml-2">{{d.originalEquipmentManufacturer}}</span></td>
+              <td *ngIf="d.originalEquipmentManufacturer === 'Dell'"><img src="../../../assets/images/Dell_Logo.png"/><span class="ml-2">{{d.originalEquipmentManufacturer}}</span></td>
+              <td *ngIf="d.originalEquipmentManufacturer === 'HP'"><img src="../../../assets/images/HP_New_Logo_2D.png"/><span class="ml-2">{{d.originalEquipmentManufacturer}}</span></td>
+              <td *ngIf="d.originalEquipmentManufacturer === 'Acer'"><img src="../../../assets/images/Acer_Logo.png"/><span class="ml-2">{{d.originalEquipmentManufacturer}}</span></td>
+              <td *ngIf="d.originalEquipmentManufacturer === 'Lenovo'"><img src="../../../assets/images/Lenovo_Corporate_Logo.png"/><span class="ml-2">{{d.originalEquipmentManufacturer}}</span></td>
+              <td *ngIf="d.originalEquipmentManufacturer === 'Asus'"><img src="../../../assets/images/ASUS_Logo.png"/><span class="ml-2">{{d.originalEquipmentManufacturer}}</span></td>
+              <td *ngIf="d.originalEquipmentManufacturer !== 'Dell' && d.originalEquipmentManufacturer !== 'HP' && d.originalEquipmentManufacturer !== 'Acer' &&
+              d.originalEquipmentManufacturer !== 'Lenovo' && d.originalEquipmentManufacturer !== 'Microsoft' && d.originalEquipmentManufacturer !== 'Asus'"><span class="ml-2">{{d.originalEquipmentManufacturer}}</span> </td>
+              <!-- <td>{{d.originalEquipmentManufacturer}}</td> -->
+              <td>{{d.make}}</td>
+              <td>{{d.model}}</td>
+              <td>{{d.productionYear}}</td>
+              <td>{{d.cpuArch}}</td>
+              <td>{{d.windowsOS}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

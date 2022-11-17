@@ -1,0 +1,73 @@
+<hr class="hr">
+<div class="row main-content">
+  <div class="col-sm-4 col-md-6 col-lg-6">
+    <h3 class="font-weight-bold main-title">Application Library</h3>
+  </div>
+
+  <div class="col-sm-4 col-md-3 col-lg-3">
+    <div class="custom-search">
+      <input type="text" class="custom-search-input" placeholder="Search" [(ngModel)]="searchText">
+      <button class="custom-search-botton" (click)="searchApplication(searchText)"><img src="../../../assets/images/Group 202 (1).png"></button>  
+    </div>
+  </div>
+
+  <div class="col-sm-4 col-md-3 col-lg-3">
+    <div class="custom-dropdown">
+    <select class="form-control" (change)="OnCategoryChange($event.target.value)">
+      <option value="0">Select</option>
+      <option [value]="c.category" *ngFor="let c of categoryList">{{c.category}}</option>
+    </select>
+  </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class="card mt-3">
+      <div class="card-body">
+        <div class="row ml-2">
+          <div class="col-md-2 col-sm-3 pl-0 pr-0" *ngFor="let app of applications">
+            <div class="card card-small text-center p-3 mr-4 pb-4 mt-3" *ngIf="app.enabled === true">
+              <div class="text-center application-icon">
+                <img [src]="app.icon" height="100" width="100"/>
+              </div>
+              <div class="mt-2">
+                <div class="application-content">
+                <h5>{{app.publisher}}</h5>
+                <h6>{{app.name}}</h6>
+                <h6>{{app.version}}</h6>
+              </div>
+                <a type="button" class="btn btn-info" (click)="viewApplicationDetails(content,app.uid)">Info</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- View Application Details -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <!-- <h4 class="modal-title">Modal title</h4> -->
+    <button type="button" class="close" style="margin-right: -3%;" aria-label="Close" (click)="modal.dismiss('Cross click')">x</button>
+  </div>
+  <div class="modal-body">
+    <div class="div text-center">
+      <img [src]="applicationDetails?.icon" height="100" width="100"/>
+      <h4 class="p-2">{{applicationDetails.publisher}} {{applicationDetails.name}} {{applicationDetails.version}}</h4>
+    </div>
+    <p>{{applicationDetails.summary}}</p>
+    <p>Arch:
+      <span>{{applicationDetails.cpuArch}}</span>
+    </p>
+    <p *ngFor="let lang of applicationDetails.lcid">
+      <span>Languages: {{lang}} </span>
+    </p>
+    <p>{{applicationDetails.copyright}}</p>
+
+    <div class="text-center">
+      <a type="button" class="btn btn-primary" [href]="applicationDetails.homepage" target="_blank">Home Page</a>
+      <a type="button" class="btn btn-primary" [href]="applicationDetails.docs" target="_blank">Docs</a>
+    </div>
+  </div>
+</ng-template>

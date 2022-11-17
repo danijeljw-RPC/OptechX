@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <div class="row vh-100 d-flex justify-content-center align-items-center">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body">
+          <div class="text-center">
+            <img src="../../../assets/images/Optechx-Logo-1-2048x514 1.png" class="img">
+            <h2 class="font-weight-bold mt-4 font">Create Your Account</h2>
+            <p class="f">Already have an account? <a [routerLink]="['/login']">Log in</a></p>
+          </div>
+          <form [formGroup]="createAccountForm">
+            <div class="row p-4">
+              <div class="col-md-6">
+                <label>Business Name</label>
+                <input type="text" class="form-control p-4" formControlName="businessName"/>
+                <label class="mt-3">Business Email</label>
+                <input type="text" class="form-control p-4" formControlName="businessEmail"/>
+                <label class="mt-3">Contact Person (Optional)</label>
+                <input type="text" class="form-control p-4" formControlName="contactPerson"/>
+                <label class="mt-3">City (Optional)</label>
+                <input type="text" class="form-control p-4" formControlName="city"/>
+                <label class="mt-3">Post Code / Zip (Optional)</label>
+                <input type="text" class="form-control p-4" formControlName="postCode"/>
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                  <label>Tax ID / VAT (Optional)</label>
+                  <input type="text" class="form-control p-4" formControlName="taxId"/>
+                  <label class="mt-3">Phone Number (Optional)</label>
+                  <input type="text" class="form-control p-4" formControlName="phoneNumber"/>
+                  <label class="mt-3">Address (Optional)</label>
+                  <input type="text" class="form-control p-4" formControlName="address"/>
+                  <label class="mt-3">State (Optional)</label>
+                  <input type="text" class="form-control p-4" formControlName="state"/>
+                  <label class="mt-3">Country (Optional)</label>
+                  <input type="text" class="form-control p-4" formControlName="country"/>
+                </div>
+              </div>
+            </div>
+            <div class="row text-center">
+              <div class="col-md-4"></div>
+              <div class="col-md-4">
+                <button class="btn btn-primary text-white mt-3 p-3" (click)="save()">SAVE</button>
+              </div>
+              <div class="col-md-4"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>

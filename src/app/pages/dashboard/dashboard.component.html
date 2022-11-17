@@ -1,0 +1,125 @@
+<div class="pb20">
+<hr class="hr">
+<div class="row ml-4">
+  <h3 class="main-title">Dashboard</h3>
+</div>
+<div class="row pl-4 pr-4">
+  <div class="col-md-12">
+    <div class="row dashboard-tiles">
+     <div class="col-lg-3 col-md-6 col-sm-6">
+       <div class="card card-1 card-small">
+         <div class="card-body">
+           <h4>Billing Type</h4>
+           <p>{{billingType}}</p>
+         </div>
+       </div>
+     </div>
+      <div class="col-lg-3 col-md-6 col-sm-6 pl-0">
+        <div class="card card-2 card-small">
+          <div class="card-body">
+            <h4>Images Remaining</h4>
+            <p>{{imagesRemaining}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6 pl-0">
+        <div class="card card-3 card-small">
+          <div class="card-body">
+            <h4>Account Tier</h4>
+            <p>{{accountTier}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6 pl-0">
+        <div class="card card-4 card-small">
+          <div class="card-body">
+            <h4>Support </h4>
+            <div class="row support-data" style="justify-content: flex-start;">
+              <div class="col-md-6 mt-2 text-center">
+                <a type="button" class="btn btn-primary px-1" href="https://support.optechx.com/" target="_blank">Raise a Ticket</a>
+              </div>
+              <div class="col-md-6 mt-2 text-center">
+                <a type="button" class="btn btn-primary px-1" href="mailto:support@optechx.com" target="_blank">Email Support</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row pl-4 pr-4 mt-3">
+  <div class="col-md-7">
+    <div class="card card-5">
+      <div class="card-body">
+        <div class="">
+          <h4 class="font-weight-bold">Build History</h4>
+          <table class="table table-dahsboard">
+            <thead>
+              <tr>
+                <th class="th">Order Name</th>
+                <th class="th">Date</th>
+                <th class="th">Status</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let history of buildHistory">
+                <td>{{history.orderName}}</td>
+                <td>{{history.date}}</td>
+                <td>{{history.status}}</td>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-5 pl-0 latest-update">
+    <div class="card card-5">
+      <div class="card-body">
+        <div class="">
+          <h4 class="font-weight-bold">Latest Updates</h4>
+          <table class="table table-dahsboard">
+            <thead>
+              <tr>
+                <th class="th">Name</th>
+                <th class="th">Version</th>
+                <th class="th">Publisher</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let news of lastFiveNews">
+               <td>{{news.name}}</td>
+               <td>{{news.version}}</td>
+               <td>{{news.publisher}}</td>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row pl-4 pr-4 mt-3">
+  <div class="col-md-12">
+
+    <div class="card card-5">
+      <div class="card-body news-update-section">
+        
+          <h4 class="font-weight-bold news-update-title">News and Updates</h4>
+        
+        <div class="row" *ngFor="let news of newsUpdates">
+          <div class="col-sm-12">
+            <img class="image" [src]="news.articleImage">
+            <div class="news-content">
+            <a [href]="news.articleLink" target="_blank">
+              <h4 class="header">{{news.articleHeading}}</h4>
+            </a>
+            <p class="body">{{news.articlePreview}}</p>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</div>

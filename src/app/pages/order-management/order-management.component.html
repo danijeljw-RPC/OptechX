@@ -1,0 +1,71 @@
+<hr class="hr">
+<div class="row mt-3 ml-4 mr-4 main-content">
+  <div class="col-md-12">
+    <h3 class="font-weight-bold main-title">Order Management</h3>
+    
+      <div class="card card-body table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table mt-3">
+          <thead>
+            <tr>
+              <th class="th rounded-corner-left">Order Name</th>
+              <th class="th">Date</th>
+              <th class="th">Status</th>
+              <th class="th text-center">Delete</th>
+              <th class="th text-center">Download</th>
+              <th class="th rounded-corner-right"></th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let o of orders; let i as index">
+            <tr>
+              <td>{{o.orderName}}</td>
+              <td> {{o.orderDate}} </td>
+              <td class="text-white" [ngClass]=" o.orderStatus === 'Submitted' ? 'submittedColor' : '' || o.orderStatus === 'Complete' ? 'completedColor' : '' ||
+                     o.orderStatus === 'Deleted' ? 'deletedColor' : '' || o.orderStatus === 'Compiling' ? 'compillingColor' : ''">{{o.orderStatus}}</td>
+              <td class="text-center"><img src="../../../assets/images/delete.png" (click)="onDeleteClick(content2, o.id)"></td> 
+              <td class="text-center"><a *ngIf="o.downloadLink != null" href="o.downloadLink" [download]="o.downloadLink" target="_blank"><img src="../../../assets/images/download.png"></a></td>
+              <td><a type="button" class="btn btn-info" (click)="viewPopup(content,o.uuid)">Info</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    
+  </div>
+</div>
+     
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <!-- <h4 class="modal-title">Modal title</h4> -->
+    <!-- <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button> -->
+  </div>
+  <div class="modal-body p-5">
+      <h5><b>Order Date: </b> {{ordersInfo.orderDate}}</h5><br>
+      <h5><b>Image Format: </b>{{ordersInfo.imageOutputFormat}}</h5><br>
+      <h5><b>Release: </b> {{ordersInfo.release}}</h5><br>
+      <h5><b>Edition: </b>{{ordersInfo.edition}}</h5><br>
+      <h5><b>Version: </b>{{ordersInfo.version}}</h5><br>
+      <h5><b>Arch: </b>{{ordersInfo.arch}}</h5><br>
+      <h5><b>Language: </b>{{ordersInfo.lcid}}</h5><br>
+      <!-- <br> -->
+      <h5><b>Username: </b>{{ordersInfo.windowsDefaultAccount}}</h5><br>
+      <h5><b>Password: </b>{{ordersInfo.windowsDefaultPassword}}</h5><br>
+      <!-- <br> -->
+      <h5><b>Auto Update Apps: </b>{{ordersInfo.continuousIntegration}}</h5><br>
+      <h5><b>Auto Rebuild: </b>{{ordersInfo.continuousDelivery}}</h5><br>
+      <div class="text-center">
+        <a type="button" class="btn btn-info" (click)="modal.close()" target="_blank">Close</a>
+      </div>
+  </div>
+
+</ng-template>
+
+
+<ng-template #content2 let-modal>
+  <div class="modal-body p-4 text-center">
+    <h5>Are you sure you want to delete?</h5>
+    <div class="mt-4">
+      <button class="btn btn-primary" (click)="modal.dismiss('Cross click')">No</button>
+      <button class="btn btn-primary" (click)="onDelete(orderDetailsObjID)">Yes</button>
+    </div>
+  </div>
+
+</ng-template>

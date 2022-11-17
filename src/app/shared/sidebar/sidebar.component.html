@@ -1,0 +1,125 @@
+<nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+  <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+    <a class="navbar-brand brand-logo">
+      <img src="../../../assets/images/Optechx-Logo-1-2048x514 1.png" alt="logo" />
+    </a>
+    <a class="navbar-brand brand-logo-mini"></a>
+  </div>
+  <div class="navbar-menu-wrapper d-flex align-items-stretch">
+    <img class="icon" src="../../../assets/images/Group 218.png" (click)="toggleSidebar()">
+
+    <ul class="navbar-nav navbar-nav-right">
+      <!-- <li class="nav-item">
+        <img src="../../../assets/images/Group 144.png" class="img p-2"/>
+      </li>
+      <li class="nav-item ml-3">
+        <img src="../../../assets/images/Group 140.png" class="img2 p-2"/>
+      </li>
+      <li class="nav-item v ml-3">
+        <div class="vertical mt-n3"></div>
+      </li> -->
+      <li class="nav-item nav-profile dropdown" ngbDropdown>
+        <a class="nav-link dropdown-toggle" id="profileDropdown" ngbDropdownToggle>
+          <div class="nav-profile-img">
+            <img src="../../../assets/images/faces-clipart/pic-1.png" alt="image">
+            <span class="availability-status online"></span>
+          </div>
+          <div class="nav-profile-text">
+            <p class="mb-1 text-black">{{user.firstName}}{{user.lastName}}</p>
+          </div>
+        </a>
+        <div class="dropdown-menu navbar-dropdown" ngbDropdownMenu aria-labelledby="profileDropdown">
+          <a class="dropdown-item" routerLink="/profile-management">
+            <i class="mdi mdi-cached mr-2 text-success"></i>
+            Edit Profile
+          </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" (click)="logout()">
+            <i class="mdi mdi-logout mr-2 text-primary"></i>
+            logout
+          </a>
+        </div>
+      </li>
+    </ul>
+    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+      (click)="toggleOffcanvas()">
+      <span class="mdi mdi-menu"></span>
+    </button>
+  </div>
+</nav>
+
+
+<ng-template #content let-modal>
+  <div class="modal-content p-5">
+    <div class="modal-body text-center">
+      <h2>Are you sure, You want to log-out?</h2>
+      <p>It is long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+      <button class="bn btn-primary text-white p-3" (click)="logout()">LOGOUT</button>
+    </div>
+  </div>
+</ng-template>
+
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+  <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize"
+      (click)="toggleSidebar()">
+      <!-- <img src="../../../assets/images/Group 218.png"> -->
+      <!-- <span class="mdi mdi-menu"></span> -->
+    </button>
+  <ul class="nav">
+    <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }">
+      <a class="nav-link" routerLink="/dashboard" routerLinkActive #dashboard="routerLinkActive">
+        <i><img src="../../../assets/images/oem.svg" class="sidebar-icon" /></i>
+        <span class="menu-title"> Dashboard </span>
+      </a> 
+    </li>
+    <li class="nav-item" [ngClass]="{ 'active': applicationLibrary.isActive }">
+      <a class="nav-link" routerLink="/application-library" routerLinkActive #applicationLibrary="routerLinkActive">
+        <i><img src="../../../assets/images/application.svg" class="sidebar-icon" /></i>
+        <span class="menu-title">Application Library</span>
+      </a>
+    </li>
+    <li class="nav-item" [ngClass]="{ 'active': driverLibrary.isActive }">
+      <a class="nav-link" routerLink="/driver-library" routerLinkActive #driverLibrary="routerLinkActive">
+        <i><img src="../../../assets/images/report.svg" class="sidebar-icon" /></i>
+        <span class="menu-title">Driver Library</span>
+      </a>
+    </li>
+    <li class="nav-item" [ngClass]="{ 'active': osCatalogue.isActive }">
+      <a class="nav-link" routerLink="/os-catalogue" routerLinkActive #osCatalogue="routerLinkActive">
+        <i><img src="../../../assets/images/invoice.svg" class="sidebar-icon" /></i>
+        <span class="menu-title">OS Catalogue</span>
+      </a>
+    </li>
+    <li class="nav-item" [ngClass]="{ 'active': createImage.isActive }">
+      <a class="nav-link" routerLink="/create-image" routerLinkActive #createImage="routerLinkActive">
+        <i><img src="../../../assets/images/creat-img.svg" class="sidebar-icon" /></i>
+        <span class="menu-title">Create Image</span>
+      </a>
+    </li>
+    <li class="nav-item" [ngClass]="{ 'active': orderManagement.isActive }">
+      <a class="nav-link" routerLink="/order-management" routerLinkActive #orderManagement="routerLinkActive">
+        <i><img src="../../../assets/images/order.svg" class="sidebar-icon" /></i>
+        <span class="menu-title">Order Management</span>
+      </a>
+    </li>
+    <!-- <li class="nav-item" [ngClass]="{ 'active': reports.isActive }">
+      <a class="nav-link" routerLink="/reports" routerLinkActive #reports="routerLinkActive">
+        <span class="menu-title">Account Management</span>
+      </a>
+    </li> -->
+    <!-- <li class="nav-item" [ngClass]="{ 'active': invoice.isActive }">
+      <a class="nav-link" routerLink="/invoice" routerLinkActive #invoice="routerLinkActive">
+        <span class="menu-title">Billing / Invoices</span>
+      </a>
+    </li> -->
+
+    <li class="nav-item mt-5 text-center" *ngIf="user?.accountTier !== 'Enterprise' && showImage">
+      <img src="../../../assets/images/Group 158.png"/><br><br>
+      <span class="font-weight-bold">OptechX Enterprise</span><br>
+      <span>Get Unlimited Seats, Dedicated Phone Support and More!</span>
+    </li>
+    <li class="nav-item text-center mt-3" *ngIf="user?.accountTier !== 'Enterprise' && showImage">
+      <button class="btn btn-orange text-white" (click)="goToPlans()">UPGRADE PLAN</button>
+    </li>
+  </ul>
+</nav>

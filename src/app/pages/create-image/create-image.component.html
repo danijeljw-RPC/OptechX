@@ -1,0 +1,437 @@
+<hr class="hr">
+<div class="row mt-3 pb20 main-content">
+  <div class="table">
+    <div id="stepper1" class="bs-stepper">
+      <div class="bs-stepper-header create-img-wrapper">
+        <div class="step" data-target="#test-l-1">
+          <button class="step-trigger">
+            <span class="bs-stepper-circle">1</span>
+            <!-- <span class="bs-stepper-label">Email</span> -->
+          </button>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-target="#test-l-2">
+          <button class="step-trigger">
+            <span class="bs-stepper-circle">2</span>
+            <!-- <span class="bs-stepper-label">Password</span> -->
+          </button>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-target="#test-l-3">
+          <button class="step-trigger">
+            <span class="bs-stepper-circle">3</span>
+            <!-- <span class="bs-stepper-label">Validate</span> -->
+          </button>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-target="#test-l-4">
+          <button class="step-trigger">
+            <span class="bs-stepper-circle">4</span>
+            <!-- <span class="bs-stepper-label">Validate</span> -->
+          </button>
+        </div>
+      </div>
+      <div class="bs-stepper-content create-img-wrapper">
+        <form>
+          <div id="test-l-1" class="content">
+            <div class="card">
+              <div class="card-body">
+                <form [formGroup]="createImageForm">
+                  <div class="row">
+                    <div class="col-md-2">
+                      <label class="mt-3">Release<span class="text-danger"> *</span></label>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="custom-dropdown">
+                      <select class=" select" (change)="OnReleaseChange($event.target.value)"
+                        formControlName="release">
+                        <option value="" selected disabled>Select Release
+                        </option>
+                        <ng-container *ngFor="let r of release; index as i;">
+                          <option *ngFor="let item of r.release" [value]="item">{{item}} </option>
+                        </ng-container>
+                      </select>
+                      </div>
+                      <div class="text-danger font-weight-bold mt-3 "
+                        *ngIf="createImageForm.controls['release'].hasError('required') && createImageForm.controls['release'].touched ">
+                        Please select option.
+                      </div>
+                    </div>
+                    <!-- <div class="col-md-2">
+                      <button class="btn btn-save p-3" (click)="saveRelease()">Save</button>
+                    </div> -->
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col-md-2">
+                      <label class="mt-3">Edition<span class="text-danger"> *</span></label>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="custom-dropdown">
+                      <select class="select" (change)="OnEditionChange($event.target.value)"
+                        formControlName="edition">
+                        <option value="" selected disabled>Select Edition</option>
+                        <ng-container *ngFor="let e of edition">
+                          <option *ngFor="let item of e.edition" [value]="item">{{item}}</option>
+                        </ng-container>
+                      </select>
+                      </div>
+                      <div class="text-danger font-weight-bold mt-3 "
+                        *ngIf="createImageForm.controls['edition'].hasError('required') && createImageForm.controls['edition'].touched ">
+                        Please select option.
+                      </div>
+                    </div>
+                    <!-- <div class="col-md-2">
+                      <button class="btn btn-save p-3" (click)="saveEdition()">Save</button>
+                    </div> -->
+                  </div>
+
+                  <div class="row mt-3">
+                    <div class="col-md-2">
+                      <label class="mt-3">Version<span class="text-danger"> *</span></label>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="custom-dropdown">
+                      <select class="select" (change)="OnVersionChange($event.target.value)"
+                        formControlName="version">
+                        <option value="" selected disabled>Select Version</option>
+                        <ng-container *ngFor="let v of version">
+                          <option *ngFor="let item of v.version" [value]="item">{{item}}</option>
+                        </ng-container>
+                      </select>
+                      </div>
+                      <div class="text-danger font-weight-bold mt-3"
+                        *ngIf="createImageForm.controls['version'].hasError('required') && createImageForm.controls['version'].touched ">
+                        Please select option.
+                      </div>
+                    </div>
+                    <!-- <div class="col-md-2">
+                      <button class="btn btn-save p-3" (click)="saveVersion()">Save</button>
+                    </div> -->
+                  </div>
+
+                  <div class="row mt-3">
+                    <div class="col-md-2">
+                      <label class="mt-3">Arch<span class="text-danger"> *</span></label>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="custom-dropdown">
+                      <select class="select" (change)="OnArchChange($event.target.value)" formControlName="arch">
+                        <option value="" selected disabled>Select Arch</option>
+                        <ng-container *ngFor="let a of arch">
+                          <option *ngFor="let item of a.arch" [value]="item">{{item}}</option>
+                        </ng-container>
+                      </select>
+                      </div>
+                      <div class="text-danger font-weight-bold mt-3"
+                        *ngIf="createImageForm.controls['arch'].hasError('required') && createImageForm.controls['arch'].touched ">
+                        Please select option.
+                      </div>
+                    </div>
+                    <!-- <div class="col-md-2">
+                      <button class="btn btn-save p-3" (click)="saveArch()">Save</button>
+                    </div> -->
+                  </div>
+
+                  <div class="row mt-3">
+                    <div class="col-md-2">
+                      <label class="mt-3">Language<span class="text-danger"> *</span></label>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="custom-dropdown">
+                      <select class=" select" (change)="OnLanguageChange($event.target.value)"
+                        formControlName="language">
+                        <option value="" selected disabled>Select Language</option>
+                        <ng-container *ngFor="let lan of language">
+                          <option *ngFor="let item of lan.language" [value]="item">{{item}}</option>
+                        </ng-container>
+                      </select>
+                      </div>
+                      <div class="text-danger font-weight-bold mt-3"
+                        *ngIf="createImageForm.controls['language'].hasError('required') && createImageForm.controls['language'].touched ">
+                        Please select option.
+                      </div>
+                    </div>
+                    <!-- <div class="col-md-2">
+                      <button class="btn btn-save p-3" (click)="saveLanguage()">Save</button>
+                    </div> -->
+                  </div>
+
+                  <div class="row mt-3">
+                    <div class="col-md-2">
+                      <label>Auto Update Apps<span class="text-danger"> *</span></label>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <input type="radio" class="radio" name="integration" value="Yes"
+                          formControlName="integration"><span class="ml-2">Yes</span>
+                        <input type="radio" class="ml-2 radio" name="integration" value="No"
+                          formControlName="integration" checked="checked"><span class="ml-2">No</span>
+                        <div class="text-danger font-weight-bold mt-3"
+                          *ngIf="createImageForm.controls['integration'].hasError('required') && createImageForm.controls['integration'].touched ">
+                          continuous integration is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row mt-3">
+                    <div class="col-md-2">
+                      <label>Auto Rebuild<span class="text-danger"> *</span></label>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <input type="radio" class="radio" name="delivery" value="Yes" formControlName="delivery"><span
+                          class="ml-2">Yes</span>
+                        <input type="radio" class="ml-2 radio" name="delivery" value="No" formControlName="delivery"
+                          checked><span class="ml-2">No</span>
+                        <div class="text-danger font-weight-bold mt-3"
+                          *ngIf="createImageForm.controls['delivery'].hasError('required') && createImageForm.controls['delivery'].touched ">
+                          continuous delivery is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row mt-3">
+                    <div class="col-md-2">
+                      <label class="mt-2">Order Name<span class="text-danger"> *</span></label>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="form-group">
+                        <input type="text" class="form-control p-4" formControlName="orderName">
+                        <div class="text-danger font-weight-bold mt-3"
+                          *ngIf="createImageForm.controls['orderName'].hasError('required') && createImageForm.controls['orderName'].touched ">
+                          order Name is required
+                        </div>
+                        <div class="text-danger font-weight-bold"
+                        *ngIf="createImageForm.controls['orderName'].hasError('pattern') && createImageForm.controls['orderName'].touched ">
+                        Please enter alphanumeric value with - and _
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row mt-3">
+                    <div class="col-md-2">
+                      <label class="mt-2">Image Format</label>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="form-group">
+                        <div class="custom-dropdown">
+                        <select class="select" (change)="($event.target.value)" formControlName="imageFormat">
+                          <option value="" selected>Select</option>
+                          <option value="WIM">WIM</option>
+                          <option value="ISO">ISO</option>
+                          <option value="VHD">VHD</option>
+                          <option value="VHDX">VHDX</option>
+                          <option value="GHO">GHO</option>
+                        </select>
+                        </div>
+
+                        <!-- <input type="text" class="form-control p-4" formControlName="notificationEmail"> -->
+                        <div class="text-danger font-weight-bold mt-3 ml-2"
+                          *ngIf="createImageForm.controls['imageFormat'].hasError('required') && createImageForm.controls['imageFormat'].touched ">
+                          Please select one option.
+                        </div>
+                        <!-- <div class="text-danger font-weight-bold mt-3" *ngIf="createImageForm.controls['notificationEmail'].hasError('email') && 
+                        (createImageForm.controls['notificationEmail'].dirty || createImageForm.controls['notificationEmail'].touched)">
+                        Please enter valid email address
+                      </div> -->
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row mt-3">
+                    <div class="col-md-2">
+                      <label class="mt-2">Default User</label>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="form-group ">
+                        <input type="text" class="form-control p-4" formControlName="defaultUser">
+                        <div class="text-danger font-weight-bold mt-3"
+                          *ngIf="createImageForm.controls['defaultUser'].hasError('required') && createImageForm.controls['defaultUser'].touched ">
+                          Default user required
+                        </div>
+                        <div class="text-danger font-weight-bold mt-3"
+                          *ngIf="createImageForm.controls['defaultUser'].hasError('pattern') && createImageForm.controls['defaultUser'].touched ">
+                          Please enter valid user
+                        </div>
+                        <!-- <div *ngIf="createImageForm.errors?.pattern">
+                        Please enter valid user.
+                      </div>  -->
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row mt-3">
+                    <div class="col-md-2">
+                      <label>Default Password</label>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="form-group">
+                        <input type="password" class="form-control p-4" formControlName="defaultPassword">
+                        <div class="text-danger font-weight-bold mt-3"
+                          *ngIf="createImageForm.controls['defaultPassword'].hasError('required') && createImageForm.controls['defaultPassword'].touched ">
+                          Password is required
+                        </div>
+                        <div class="text-danger font-weight-bold"
+                          *ngIf="createImageForm.controls['defaultPassword'].hasError('minlength') && createImageForm.controls['defaultPassword'].touched">
+                          Please enter at least 8 characters.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <button (click)="next()" class="btn btn-primary p-3 mt-3">NEXT</button>
+              </div>
+            </div>
+          </div>
+
+          <div id="test-l-2" class="content">
+            <div class="card">
+              <div class="card-body">
+                <form [formGroup]="rowFormArray">
+                  <label class="mt-3">Windows Optional Feature  <a href="https://github.com/repasscloud/optechxdocs/raw/main/Windows%20Optional%20Feature.pdf" target="_blank">Reference</a>
+                     </label>
+                  <div class="row mt-3 p-2">
+                    <div class="col-md-4">
+                      <input type="text" class="form-control p-4" formControlName="windowsOptionFetures">
+                    </div>
+                  </div>
+
+                  <label class="mt-3">Appx Provisioned Packages  <a href="https://github.com/repasscloud/optechxdocs/raw/main/Appx%20Provisioned%20Packages.pdf" target="_blank">Reference</a></label>
+                  <div class="row mt-3 p-2">
+                    <div class="col-md-4">
+                      <input type="text" class="form-control p-4" formControlName="appProvisionedPackage">
+                    </div>
+                  </div>
+
+                  <label class="mt-3">Registry String</label>
+
+                  <div class="row mt-2 p-2">
+                    <!-- <label class="font-weight-bold mt-2">reg</label> -->
+                    <div formArrayName="registryString">
+                      <div class="mt-2" style="display: flex; flex-direction: row;"
+                        *ngFor="let item of rowArray.controls; let i=index" [formGroupName]="i">
+                        <select class="ml-2 pattern p-1" formControlName="actionDropDown">
+                          <option value="" selected disabled>Action</option>
+                          <option value="Add">Add</option>
+                          <option value="Delete">Delete</option>
+                        </select>
+
+                        <select class="ml-2 pattern p-1" formControlName="valueSelectDropDown">
+                          <option value="" selected disabled>Value Select</option>
+                          <option value="/v">/v</option>
+                          <option value="/ve">/ve</option>
+                        </select>
+
+                        <input class="ml-2 pattern p-2" type="text" placeholder="Value" formControlName="valueInput" />
+                        <label class="font-weight-bold ml-2 mt-2" formControlName="tLabel">/t</label>
+
+                        <select class="ml-2 pattern p-1" formControlName="dataTypeSelectDropDown">
+                          <option value="" selected disabled>Datatype Select</option>
+                          <option value="REG_SZ">REG_SZ</option>
+                          <option value="REG_DWORD">REG_DWORD</option>
+                          <option value="REG_BINARY">REG_BINARY</option>
+                          <option value="REG_EXPAND_SZ">REG_EXPAND_SZ</option>
+                        </select>
+
+                        <label class="font-weight-bold ml-2 mt-2" formControlName="dLabel">/d</label>
+                        <input class="ml-2 pattern p-2" type="text" placeholder="Value" formControlName="value2Input" />
+                        <label class="font-weight-bold ml-2 mt-2" formControlName="fLabel">/f</label>
+                        <button class="btn btn-plus text-white ml-2" (click)="addNewArray()"><i
+                            class="fa fa-plus"></i></button>
+                        <button class="btn btn-plus text-white ml-2" (click)="deleteArray(i)"><i
+                            class="fa fa-minus"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <button (click)="next2()" class="btn btn-primary p-3 mt-3">Next</button>
+              </div>
+            </div>
+          </div>
+
+          <div id="test-l-3" class="content">
+            <div class="row mt-3">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <!-- <label>App Section</label> -->
+                  <div class="card mt-2">
+                    <div class="card-body table-wrapper-scroll-y my-custom-scrollbar">
+                      <table class="table mt-2">
+                        <thead>
+                          <tr>
+                            <th class="th rounded-corner-left">Publisher</th>
+                            <th class="th">Name</th>
+                            <th class="th">Version</th>
+                            <th class="th rounded-corner-right">Select</th>
+                          </tr>
+                        </thead>
+                        <tbody *ngFor="let data of applications; index as i">
+                          <tr>
+                            <td>{{data.publisher}}</td>
+                            <td>{{data.name}}</td>
+                            <td>{{data.version}}</td>
+                            <td><input type="checkbox" (change)="onchange($event, data.uid, i)"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button (click)="next3()" class="btn btn-primary p-3 mt-3">Next</button>
+          </div>
+
+          <!-- setper-4 -->
+          <div id="test-l-4" class="content">
+            <div class="card">
+              <div class="card-body table-wrapper-scroll-y my-custom-scrollbar">
+                <table class="table mt-2">
+                  <thead>
+                    <tr>
+                      <th class="th rounded-corner-left">OEM</th>
+                      <th class="th">Make</th>
+                      <th class="th">Model</th>
+                      <th class="th">Manufactured</th>
+                      <th class="th rounded-corner-right">Select</th>
+                    </tr>
+                  </thead>
+                  <tbody *ngFor="let data of driversData; index as i">
+                    <tr>
+                      <td>{{data.originalEquipmentManufacturer}}</td>
+                      <td>{{data.make}}</td>
+                      <td>{{data.model}}</td>
+                      <td>{{data.productionYear}}</td>
+                      <td><input type="checkbox" (change)="onchangeOrderData($event, data.uid, i)"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <button class="btn-primary mt-3 p-3" (click)="confirmOrder(content)">CONFIRM ORDER</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-content p-4">
+    <div class="modal-body p-3 text-center">
+      <h2>Confirm Order Submission</h2>
+      <p>Proceed with submiting your order to be processed?</p>
+      <div class="row justify-content-center">
+        <div class="col-auto pr-2">
+          <a type="button" class="btn btn-info px-4 py-3" (click)="modal.close()" target="_blank">CANCEL</a>
+        </div>
+        <div class="col-auto pl-2">
+          <a type="button" class="btn btn-primary px-4 py-3" (click)="submit()" target="_blank">SUBMIT</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,73 @@
+<div class="container-fluid">
+  <div class="row vh-100 d-flex justify-content-center align-items-center">
+    <div class="col-md-2 col-lg-4"></div>
+    <div class="col-lg-4 col-md-8 col-sm-7 col-12 col">
+      <div class="card">
+        <div class="card-body">
+          <div class="text-center">
+            <img src="../../../assets/images/Optechx-Logo-1-2048x514 1.png" class="img">
+            <p class="font-style mt-4">Sign Up</p>
+            <p class="f">Already have an account? <a [routerLink]="['/login']">Log In</a></p>
+          </div>
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-12">
+              <form [formGroup]="signUpForm" (ngSubmit)="signup()">
+                <div class="form-group">
+                  <label class="font-size">Email</label>
+                  <input type="text" class="form-control" formControlName="email" placeholder="Enter your email"/>
+                  <div class="text-danger font-weight-bold mt-3"
+                    *ngIf="signUpForm.controls['email'].hasError('required') && signUpForm.controls['email'].touched ">
+                    Email is required
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="font-size">Password</label>
+                  <input type="password" class="form-control" formControlName="password" placeholder="Enter your password"/>
+                  <div class="text-danger font-weight-bold mt-3"
+                    *ngIf="signUpForm.controls['password'].hasError('required') && signUpForm.controls['password'].touched ">
+                    Password is required
+                  </div>
+                  <div class="text-danger font-weight-bold" *ngIf="signUpForm.controls['password'].hasError('minlength') && signUpForm.controls['password'].touched">
+                    Please enter at least 8 characters.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="font-size">Confirm Password</label>
+                  <input type="password" class="form-control" formControlName="confirmPassword" placeholder="Enter your confirm password"/>
+                  <div class="text-danger font-weight-bold"
+                    *ngIf="signUpForm.controls['confirmPassword'].hasError('required') && signUpForm.controls['confirmPassword'].touched ">
+                    Confirm Password is required
+                  </div>
+                  <div class="text-danger font-weight-bold mt-3"
+                    *ngIf="signUpForm.controls['confirmPassword'].hasError('ConfirmPassword') && signUpForm.controls['confirmPassword'].touched">
+                    Passwords do not match
+                  </div>  
+                </div>
+                <div class="form-group">
+                  <label class="font-size">Country</label>
+                  <select class="form-control" formControlName="country">
+                    <option value="">SELECT COUNTRY</option>
+                    <option [value]="c.id" *ngFor="let c of countries">{{c.name}}</option>
+                  </select>
+                  <div class="text-danger font-weight-bold mt-3"
+                    *ngIf="signUpForm.controls['country'].hasError('required') && signUpForm.controls['country'].touched ">
+                    Country is required
+                  </div>
+                </div>
+                <label>
+                  <input type="checkbox" formControlName="acceptTerms" [ngClass]="{ 'is-invalid': submitted && signUpForm.controls.acceptTerms.errors }">  I accept <a href="https://optechx.com/terms-of-service/" target="_blank"> Terms & Conditions</a>
+                  <div class="text-danger mt-1 f"
+                    *ngIf="signUpForm.controls['acceptTerms'].hasError('required') && signUpForm.controls['acceptTerms'].touched ">
+                      Please accept Terms & Conditions
+                  </div>
+                </label>
+                <button class="btn btn-primary text-white p-3 mt-2" (click)="signup()">CONTINUE</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 col-lg-4"></div>
+  </div>
+</div>

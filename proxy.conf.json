@@ -1,0 +1,10 @@
+{
+
+    "/api/*": {
+      "target": "https://nyc-02.2qid.com/",
+      "secure": false,
+      "logLevel": "debug",
+      "changeOrigin": true
+  }
+  }
+  

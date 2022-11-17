@@ -1,0 +1,99 @@
+<hr class="hr">
+<div class="row ml-4 mr-4 main-content">
+  <div class="col-md-12">
+    <h3 class="font-weight-bold main-title">OS Catalogue</h3>
+    <div class="display driver-library">
+      <div class="custom-dropdown">
+      <select class="form-control" (change)="onChangeOfRelease($event.target.value)" placeholder="Select Edition">
+        <option value="0" selected>Select Release</option>
+        <option value="Windows10">Windows 10</option>
+        <option value="Windows11">Windows 11</option>
+        <option value="Windows81">Windows 8.1</option>
+        <option value="Windows7">Windows 7</option>
+      </select>
+      </div>
+      <div class="custom-dropdown ml-3">
+      <select class="form-control" (change)="onChangeOfArch($event.target.value)" placeholder="Select Version">
+        <option value="0" selected>Select Arch</option>
+        <option value="x64">x64</option>
+        <option value="x86">x86</option>
+      </select>
+      </div>
+      <div class="custom-dropdown ml-3">
+      <select class="form-control" (change)="onChangeOfLanguage($event.target.value)"
+        placeholder="Select Language">
+        <option value="0" selected>Select Language</option>
+        <option value="Arabic">Arabic</option>
+        <option value="Brazilian">Brazilian</option>
+        <option value="Bulgarian">Bulgarian</option>
+        <option value="Chinese">Chinese</option>
+        <option value="Chinese_Traditional">Chinese Traditional</option>
+        <option value="Croatian">Croatian</option>
+        <option value="Czech">Czech</option>
+        <option value="Danish">Danish</option>
+        <option value="Dutch">Dutch</option>
+        <option value="English">English</option>
+        <option value="English_International">English International</option>
+        <option value="Estonian">Estonian</option>
+        <option value="Finnish">Finnish</option>
+        <option value="French">French</option>
+        <option value="French_Canadian">French Canadian</option>
+        <option value="German">German</option>
+        <option value="Greek">Greek</option>
+        <option value="Hebrew">Hebrew</option>
+        <option value="Hungarian">Hungarian</option>
+        <option value="Italian">Italian</option>
+        <option value="Japanese">Japanese</option>
+        <option value="Korean">Korean</option>
+        <option value="Latvian">Latvian</option>
+        <option value="Lithuanian">Lithuanian</option>
+        <option value="Norwegian">Norwegian</option>
+        <option value="Polish">Polish</option>
+        <option value="Portuguese">Portuguese</option>
+        <option value="Romanian">Romanian</option>
+        <option value="Russian">Russian</option>
+        <option value="Serbian_Latin">Serbian Latin</option>
+        <option value="Slovak">Slovak</option>
+        <option value="Slovenian">Slovenian</option>
+        <option value="Spanish">Spanish</option>
+        <!-- <option value="Spanish (Mexico)">Spanish (Mexico)</option> -->
+        <option value="Swedish">Swedish</option>
+        <option value="Thai">Thai</option>
+        <option value="Turkish">Turkish</option>
+        <option value="Ukrainian">Ukrainian</option>
+        <!-- <ng-container *ngFor="let lan of language">
+                <option *ngFor="let item of lan.language" [value]="item">{{item}}</option>
+              </ng-container> -->
+      </select>
+      </div>
+    </div>
+    <div class="card  mt-3">
+      <div class="card-body table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table mt-2">
+          <thead>
+            <tr>
+              <th class="th rounded-corner-left">Release</th>
+              <th class="th">Edition</th>
+              <th class="th">Version</th>
+              <th class="th">Build</th>
+              <th class="th">Arch</th>
+              <th class="th">Language</th>
+              <th class="th rounded-corner-right">SupportedUntill</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let os of osCatalougeData; index as i">
+            <tr>
+              <td>{{os.release}}</td>
+              <td>{{os.edition}}</td>
+              <td>{{os.version}}</td>
+              <td>{{os.build}}</td>
+              <td>{{os.arch}}</td>
+              <td>{{os.windowsLcid}}</td>
+              <td>{{os.supportedUntil}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

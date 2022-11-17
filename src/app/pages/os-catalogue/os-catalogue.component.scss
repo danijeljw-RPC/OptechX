@@ -1,0 +1,83 @@
+hr.hr{
+    border: 2px solid #EFF3FC;
+}
+// h3{
+//     font-family: 'Poppins';
+//     font-style: normal;
+//     font-weight: 600;
+
+// }
+.card{
+    background: #EFF3FC;
+    border: 1px solid #D8D8FA;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+thead{
+    background: #D8D8FA;
+    border-radius: 5px;
+}
+.display{
+    display: flex;
+    flex-wrap: initial;
+    width: 100%;
+}
+.btn-primary{
+    background: #2CD1F9;
+    border-radius: 10px;
+    border: #2CD1F9;
+}
+.display{
+    display: flex;
+    flex-wrap: initial;
+    width: 100%;
+}
+select{
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    height: 50px;
+  }
+  .my-custom-scrollbar {
+    position: relative;
+    height: 700px;
+    overflow: auto;
+    }
+  .table-wrapper-scroll-y {
+    display: block;
+  }
+
+  .th{
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-style: bold;
+  }
+  
+  .rounded-corner-left{
+    border-collapse: separate;
+    border:'solid 1px #D8D8FA';
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+  }
+  .rounded-corner-right{
+    border-collapse: separate;
+    border:'solid 1px #D8D8FA';
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+  .card .card-body {
+    padding: 30px 20px;
+  }
+  
+  .library-table .table tbody + tbody {
+    border-top: 1px solid #D8D8FA;
+  }
+
+  
+.driver-library .custom-dropdown{display: block; width: 100%; }
+.custom-dropdown select.form-control{background-position:95% center; }  
+
+@media (max-width: 767px) {
+  .driver-library {padding-top:15px; }
+  .custom-dropdown select.form-control{background-position:92% center; }
+  }

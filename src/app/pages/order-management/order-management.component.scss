@@ -1,0 +1,89 @@
+hr.hr{
+  border: 2px solid #EFF3FC;
+}
+.card{
+  border: 1px solid #E6E9FF;
+  box-sizing: border-box;
+  border-radius: 19.0044px;
+  height: 750px;
+}
+.card-body{
+  background-color: #EFF3FC;
+}
+thead{
+  background: #D8D8FA;
+  border-radius: 5px;
+}
+
+.deleted{
+  position: absolute;
+  background: #FFDEDC;
+  border-radius: 20px;
+  margin-top: 1%;
+}
+.completedColor{
+  position: absolute;
+  background: #28a745;
+  border-radius: 20px;
+  margin-top: 1%;
+}
+.submittedColor {
+  position: absolute;
+  background: #6c757d;
+  border-radius: 20px;
+  margin-top: 1%;
+}
+.deletedColor {
+  position: absolute;
+  background: #dc3545;
+  border-radius: 20px;
+  margin-top: 1%;
+}
+.compillingColor{
+  position: absolute;
+  background: #007bff;
+  border-radius: 20px;
+  margin-top: 1%;
+}
+.queued{
+  position: absolute;
+  background: #FFDE9C;
+  border-radius: 20px;
+  margin-top: 1%;
+}
+
+img{
+  cursor: pointer;
+}
+
+.my-custom-scrollbar {
+  position: relative;
+  height: 800px;
+  overflow: auto;
+  }
+.table-wrapper-scroll-y {
+  display: block;
+}
+
+.th{
+  font-family: 'Poppins';
+  font-weight: 600;
+  font-style: bold;
+}
+
+.rounded-corner-left{
+  border-collapse: separate;
+  border:'solid 1px #D8D8FA';
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+.rounded-corner-right{
+  border-collapse: separate;
+  border:'solid 1px #D8D8FA';
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.card .card-body {
+  padding: 30px 20px;
+}

@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="row vh-100 d-flex justify-content-center align-items-center">
+    <div class="col-md-2 col-lg-4"></div>
+    <div class="col-sm-12 col-md-8 col-lg-4">
+      <div class="card p-3">
+        <div class="card-body">
+          <div class="text-center">
+            <img src="../../../assets/images/Optechx-Logo-1-2048x514 1.png" class="img">
+            <p class="font-style mt-4">Verify Email</p>
+          </div>
+          <div class="row p-3 mt-3">
+            <div class="col-md-12">
+              <form [formGroup]="emailVerificationForm">
+                <label class="font-size mt-1">Enter verification code from email</label>
+                <input type="text" class="form-control p-4" formControlName="token" placeholder="Verification Code"/>
+                <div class="text-danger font-weight-bold mt-3"
+                  *ngIf="emailVerificationForm.controls['token'].hasError('required') && emailVerificationForm.controls['token'].touched ">
+                  Token is required
+                </div>
+                <div class="wrapper text-center">
+                  <button class="btn btn-primary text-white p-3 mt-5" (click)="onSubmit()">SUBMIT</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 col-lg-4"></div>
+  </div>
+</div>

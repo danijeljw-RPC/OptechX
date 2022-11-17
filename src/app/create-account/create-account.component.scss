@@ -1,0 +1,117 @@
+.card{
+  background-color: #EFF3FC;
+  border: 1px solid #D8D8FA;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+.btn-primary{
+  background: linear-gradient(180deg, #2CD1F9 0%, #0ABCE7 94.29%);
+  border-radius: 10px;
+  border-color: #2CD1F9;
+  width: 100%;
+}
+.btn-light-gray{
+  background-color: #C4C4C4;
+}
+input{
+  background: #FFFFFF;
+  box-shadow: 0px 2px 10px #DEE8FF;
+  border-radius: 10px;
+  border: #FFFFFF;
+  height: 70px;
+}
+.vertical {
+  border-left: 2px solid white;
+  height: 52%;
+  position:absolute;
+  /* left: 50%; */
+}
+span{
+  margin-left:5%;
+}
+.img{
+  width: 199px;
+  height: 50px;
+}
+.font{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 69px;
+  text-align: center;
+  color: #31314F;
+}
+.font-style{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 46px;
+  line-height: 69px;
+}
+.f{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: center;
+  color: #31314F;
+}
+label{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  color: #31314F;
+}
+.font-size{
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px;
+  color: #31314F;
+}
+.btn-microsoft{
+  background: #CDD6FF;
+  box-shadow: 0px 2px 10px #DEE8FF;
+  border-radius: 10px;
+}
+.btn-twitter{
+  background: #CDE5FF;
+  box-shadow: 0px 2px 10px #DEE8FF;
+  border-radius: 10px;
+}
+.btn-google{
+  background: #FFD8CD;
+  box-shadow: 0px 2px 10px #DEE8FF;
+  border-radius: 10px;
+}
+a{
+  cursor: pointer;
+}
+.wrapper{
+  text-align: center;
+}
+.btn{
+  height: 70px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  color: #FFFFFF;
+}
+@media (min-width: 0px) and (max-width: 766px) {
+  .vertical{
+    display: none;
+  }
+  .font-size{
+    margin-top: 10%;
+  }
+  .media{
+    padding: 2%;
+    margin-top: -10%;
+  }
+}

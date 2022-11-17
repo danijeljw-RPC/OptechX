@@ -1,0 +1,129 @@
+.card{
+  background-color: white;
+}
+.col-6{
+	width: 20%;
+}
+.plans{
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  // line-height: 69px;
+  color: #31314F;
+}
+
+.font-style{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 69px;
+  text-align: center;
+  color: #31314F;
+}
+.font-size{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: #31314F;
+  text-align: left;
+}
+.btn{
+  height: 70px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  color: #FFFFFF;
+}
+.img{
+  height: 30px;
+  width: 30px;
+}
+.p{
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  // line-height: 30px;
+  color: #31314F;
+}
+hr{
+  border-top: 2px solid white;
+}
+.btn-primary{
+  background: linear-gradient(180deg, #2CD1F9 0%, #0ABCE7 94.29%);
+  border-radius: 10px;
+  width: 100%;
+  border: #2CD1F9;
+}
+.card-free{
+  background: #00D1D1;
+  border-radius: 20px;
+  border: #00D1D1;
+}
+.card-f{
+  background: #D4F8F8;
+  border-radius: 20px;
+}
+.card-standard{
+  background: #0093D1;
+  border-radius: 20px;
+  border: #0093D1;
+}
+.card-s{
+  background: #E6F2FF;
+  border-radius: 20px;
+}
+.card-professional{
+  background: #C312EF;
+  border-radius: 20px;
+  border: #C312EF;
+}
+.card-p{
+  background: #F0E8FF;
+  border-radius: 20px;
+}
+.card-business{
+  background: #FF5E18;
+  border-radius: 20px;
+  border: #FF5E18;
+}
+.card-b{
+  background: #FBE7E8;
+  border-radius: 20px;
+}
+.card-enterprise{
+  background: #D5C116;
+  border-radius: 20px;
+  border: #D5C116;
+}
+.card-e{
+  background: #F8FBE7;
+  border-radius: 20px;
+}
+.btn{
+  height: 70px;
+}
+@media (min-width: 500px) and (max-width: 992px) {
+  .col-6{
+    width: 50%;
+  }
+}
+@media (min-width: 0px) and (max-width: 500px) {
+  .col-6{
+    width: 100%;
+    margin-top: 3%;
+  }
+}
+.container-fluid{
+  background: #EFF3FC;
+}
+hr{
+  border: 1px solid black;
+  width: 30%;
+}
