@@ -1,5 +1,5 @@
 {
-  "name": "OptechX Web_App",
+  "name": "OptechX_Web_App",
   "version": "4.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build-prod": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build --prod"
   },
   "private": true,
   "dependencies": {
@@ -40,7 +41,7 @@
     "zone.js": "~0.11.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.1001.7",
+    "@angular-devkit/build-angular": "~0.901.6",
     "@angular/cli": "~10.1.7",
     "@angular/compiler-cli": "~10.1.6",
     "@angular/language-service": "~10.1.6",
